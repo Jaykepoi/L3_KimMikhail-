@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+enum dvigStatus{
+    case on, off
+}
+enum windStatus{
+    case on, off
+}
+enum bagStatus{
+    case poln,pust
+}
+struct Sportcar {
+    var brand : String
+    var color : String
+    
+    mutating func colorCar(col:String){
+        switch col {
+        case "Blue":
+            self.color = "Blue"
+            case "Purple":
+                self.color = "Purple"
+                case "Black":
+                    self.color = "Black"
+        default:
+            print("Такого цвета нет.")
+}
+    }
+    var god : Int
+    var windStatus : windStatus { 
+        willSet{
+        if newValue == .on{
+            print ("Марка машины: \(brand) цвет: \(color) год: \(god) Окно открыто")
+        }else {
+            print("Марка машины: \(brand) цвет: \(color) год: \(god) Окно закрыто")
+        }
+            
+        }
+    }
+    var dvigStatus : dvigStatus{
+        willSet{
+            if newValue == .on{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Двигатель включен")
+            }else{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Двигатель выключен")
+            }
+        }
+    }
+    var bagStatus : bagStatus{
+        willSet{
+            if newValue == .pust{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Багажник заполнен на 400 литров")
+            }else{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Багажник заполнен полностью ")
+            }
+        }
+    }
+    var volume : Int{
+        willSet{
+            if (bagStatus == .pust) || (volume &gt; 0) || (volume != 0) || (newValue &lt; volume){
+                var s = volume + newValue
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Объем багажника составляет: \(s) л.")
+            }else {
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Объем багажника заполнен")
+                
+            }
+        }
+    }
+    }
+
+struct Trunkcar {
+    var brand : String
+    var color : String
+    
+    mutating func colorCar(col:String){
+        switch col {
+        case "Blue":
+            self.color = "Blue"
+        case "Purple":
+            self.color = "Purple"
+        case "Black":
+            self.color = "Black"
+        default:
+            print("Такого цвета нет.")
+        }
+    }
+    var god : Int
+    var windStatus : windStatus { 
+        willSet{
+            if newValue == .on{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Окно открыто")
+            }else {
+                print("Марка машины: \(brand) цвет: \(color) год: \(god) Окно закрыто")
+            }
+            
+        }
+    }
+    var dvigStatus : dvigStatus{
+        willSet{
+            if newValue == .on{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Двигатель включен")
+            }else{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Двигатель выключен")
+            }
+        }
+    }
+    var bagStatus : bagStatus{
+        willSet{
+            if newValue == .pust{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Объем кузова не заполнен")
+            }else{
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Объем кузова заполнен")
+            }
+        }
+    }
+    var volume : Int{
+        willSet{
+            if (bagStatus == .pust) || (volume &gt; 0) || (volume != 0) || (newValue &lt; volume){
+                var s = volume + newValue
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god) Объем кузова: \(s) м3")
+            }else {
+                print ("Марка машины: \(brand) цвет: \(color) год: \(god)  Объем кузова полон.")
+            }
+        }
+            }
+}
+            
+    
+    
+    var car = Sportcar(brand: "Audi",color: "Purple", god: 2001,windStatus: .on,dvigStatus:.on,bagStatus: .pust, volume: 0)
+    
+    var trunk = Trunkcar(brand: "MAN",color: "Black", god: 1990,windStatus: .on,dvigStatus:.on,bagStatus: .pust,volume: 0)
+            
+print("Марка машины: \(car.brand), цвет машины: \(car.color), год машины: \(car.god), \(car.windStatus), \(car.dvigStatus), \(car.bagStatus), \(car.volume)")
+car.brand = "Lexus"
+car.color = "Blue"
+car.god = 2003
+car.dvigStatus = .on
+car.windStatus = .on
+car.volume = 40
+car.bagStatus = .poln
+
+trunk.brand = "Зил"
+trunk.color = "Purple"
+trunk.god = 1999
+trunk.dvigStatus = .on
+trunk.windStatus = .on
+trunk.volume = 30
+trunk.bagStatus = .pust
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 4476}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
